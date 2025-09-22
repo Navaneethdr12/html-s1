@@ -101,6 +101,42 @@
           </td>
         </tr>
 
+        <!-- New rows for sin, cos, truncate, random -->
+
+        <tr>
+          <td>Enter angle in radians for sin():
+            <input type="number" id="num8" step="any" />
+          </td>
+          <td>sin() value:
+            <output id="sinnum8">0</output>
+          </td>
+        </tr>
+
+        <tr>
+          <td>Enter angle in radians for cos():
+            <input type="number" id="num9" step="any" />
+          </td>
+          <td>cos() value:
+            <output id="cosnum9">0</output>
+          </td>
+        </tr>
+
+        <tr>
+          <td>Enter a Number for truncate:
+            <input type="number" id="num10" step="any" />
+          </td>
+          <td>Truncated value:
+            <output id="truncnum10">0</output>
+          </td>
+        </tr>
+
+        <tr>
+          <td>Random Number between 1 and 100:</td>
+          <td>
+            <output id="randomNum">0</output>
+          </td>
+        </tr>
+
         <tr>
           <td colspan="2" style="text-align:center;">
             <input
@@ -118,36 +154,45 @@
 
   <script>
     function calculateAll() {
-      
       let num1 = parseFloat(document.getElementById("num1").value) || 0;
-      document.getElementById("sqnum1").textContent = Math.sqrt(num1).toFixed(4)|| 0;
+      document.getElementById("sqnum1").textContent = Math.sqrt(num1).toFixed(4) || 0;
 
-      
-      let num2 = parseFloat(document.getElementById("num2").value) ;
-      let power = parseInt(document.getElementById("power").value) ;
-      document.getElementById("resultnum2").textContent = Math.pow(num2, power) || 0;
+      let num2 = parseFloat(document.getElementById("num2").value);
+      let power = parseInt(document.getElementById("power").value);
+      document.getElementById("resultnum2").textContent = (num2 !== undefined && power !== undefined && !isNaN(num2) && !isNaN(power)) ? Math.pow(num2, power) : 0;
 
-      
       let num3 = parseFloat(document.getElementById("num3").value) || 0;
       document.getElementById("modnum3").textContent = Math.abs(num3);
 
-      
       let num4 = parseFloat(document.getElementById("num4").value) || 0;
       document.getElementById("ceilnum4").textContent = Math.ceil(num4);
 
-      
       let num5 = parseFloat(document.getElementById("num5").value) || 0;
       document.getElementById("floornum5").textContent = Math.floor(num5);
 
-      
       let num6 = parseFloat(document.getElementById("num6").value) || 0;
       document.getElementById("roundnum6").textContent = Math.round(num6);
 
-      
       let num7_1 = parseFloat(document.getElementById("num7_1").value) || 0;
       let num7_2 = parseFloat(document.getElementById("num7_2").value) || 0;
       document.getElementById("maxnum7").textContent = Math.max(num7_1, num7_2);
       document.getElementById("minnum7").textContent = Math.min(num7_1, num7_2);
+
+  
+      let num8 = parseFloat(document.getElementById("num8").value) || 0;
+      document.getElementById("sinnum8").textContent = Math.sin(num8).toFixed(4);
+
+      
+      let num9 = parseFloat(document.getElementById("num9").value) || 0;
+      document.getElementById("cosnum9").textContent = Math.cos(num9).toFixed(4);
+
+      
+      let num10 = parseFloat(document.getElementById("num10").value) || 0;
+      document.getElementById("truncnum10").textContent = Math.trunc(num10);
+
+      
+      let randomNumber = Math.floor(Math.random() * 100) + 1;
+      document.getElementById("randomNum").textContent = randomNumber;
     }
   </script>
 </body>
