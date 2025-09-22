@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Math Functions</title>
+  <style>
+    table {
+      padding: 5px;
+      padding-left: 10px;
+      text-align: left;
+      font-size: 24px;
+      border: 5px solid black;
+      border-collapse: collapse;
+    }
+    td, th {
+      padding: 15px 10px;
+      font-size: 24px;
+      border: 2px solid black;
+      line-height: 2;
+    }
+    th {
+      text-align: center;
+      font-size: 34px;
+    }
+  </style>
+</head>
+<body>
+  <center>
+    <form id="mathForm" onsubmit="return false;">
+      <table>
+        <tr><th colspan="2">Math Functions</th></tr>
+
+        <tr>
+          <td>Enter a Number:
+            <input type="number" id="num1" step="any" />
+          </td>
+          <td>Square root is:
+            <output id="sqnum1">0</output>
+          </td>
+        </tr>
+
+        <tr>
+          <td>Enter a Number:
+            <input type="number" id="num2" step="any" /><br />
+            Enter power:
+            <input type="number" id="power" />
+          </td>
+          <td>Result:
+            <output id="resultnum2">0</output>
+          </td>
+        </tr>
+
+        <tr>
+          <td>Enter a Number:
+            <input type="number" id="num3" step="any" />
+          </td>
+          <td>Absolute value:
+            <output id="modnum3">0</output>
+          </td>
+        </tr>
+
+        <tr>
+          <td>Enter a Number:
+            <input type="number" id="num4" step="any" />
+          </td>
+          <td>Ceiling of Number:
+            <output id="ceilnum4">0</output>
+          </td>
+        </tr>
+
+        <tr>
+          <td>Enter a Number:
+            <input type="number" id="num5" step="any" />
+          </td>
+          <td>Floor of Number:
+            <output id="floornum5">0</output>
+          </td>
+        </tr>
+
+        <tr>
+          <td>Enter a Number:
+            <input type="number" id="num6" step="any" />
+          </td>
+          <td>Round of Number:
+            <output id="roundnum6">0</output>
+          </td>
+        </tr>
+
+        <tr>
+          <td>Enter First Number:
+            <input type="number" id="num7_1" step="any" /><br />
+            Enter Second Number:
+            <input type="number" id="num7_2" step="any" />
+          </td>
+          <td>
+            Maximum of Number:
+            <output id="maxnum7">0</output><br />
+            Minimum of Number:
+            <output id="minnum7">0</output>
+          </td>
+        </tr>
+
+        <tr>
+          <td colspan="2" style="text-align:center;">
+            <input
+              type="button"
+              id="Submit"
+              value="Calculate"
+              style="font-size: 30px;"
+              onclick="calculateAll()"
+            />
+          </td>
+        </tr>
+      </table>
+    </form>
+  </center>
+
+  <script>
+    function calculateAll() {
+      
+      let num1 = parseFloat(document.getElementById("num1").value) || 0;
+      document.getElementById("sqnum1").textContent = Math.sqrt(num1).toFixed(4)|| 0;
+
+      
+      let num2 = parseFloat(document.getElementById("num2").value) ;
+      let power = parseInt(document.getElementById("power").value) ;
+      document.getElementById("resultnum2").textContent = Math.pow(num2, power) || 0;
+
+      
+      let num3 = parseFloat(document.getElementById("num3").value) || 0;
+      document.getElementById("modnum3").textContent = Math.abs(num3);
+
+      
+      let num4 = parseFloat(document.getElementById("num4").value) || 0;
+      document.getElementById("ceilnum4").textContent = Math.ceil(num4);
+
+      
+      let num5 = parseFloat(document.getElementById("num5").value) || 0;
+      document.getElementById("floornum5").textContent = Math.floor(num5);
+
+      
+      let num6 = parseFloat(document.getElementById("num6").value) || 0;
+      document.getElementById("roundnum6").textContent = Math.round(num6);
+
+      
+      let num7_1 = parseFloat(document.getElementById("num7_1").value) || 0;
+      let num7_2 = parseFloat(document.getElementById("num7_2").value) || 0;
+      document.getElementById("maxnum7").textContent = Math.max(num7_1, num7_2);
+      document.getElementById("minnum7").textContent = Math.min(num7_1, num7_2);
+    }
+  </script>
+</body>
+</html>

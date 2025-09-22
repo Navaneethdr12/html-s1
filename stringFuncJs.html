@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>String Functions</title>
+  <style>
+    table {
+      padding: 5px;
+      padding-left: 10px;
+      text-align: left;
+      font-size: 24px;
+      border: 5px solid black;
+      border-collapse: collapse;
+      max-width: 800px;
+      width: 90%;
+    }
+    td, th {
+      padding: 15px 10px;
+      font-size: 24px;
+      border: 2px solid black;
+      line-height: 2;
+      vertical-align: top;
+    }
+    th {
+      text-align: center;
+      font-size: 34px;
+    }
+    input[type="text"], input[type="number"] {
+      font-size: 20px;
+      padding: 5px;
+      width: 100%;
+      box-sizing: border-box;
+    }
+  </style>
+</head>
+<body>
+  <center>
+    <form id="stringForm" onsubmit="return false;">
+      <table>
+        <tr><th colspan="2">String Functions</th></tr>
+
+        <tr>
+          <td>Enter a String:
+            <input type="text" id="inputString" />
+          </td>
+          <td>Length of String:
+            <output id="strLength">0</output>
+          </td>
+        </tr>
+
+        <tr>
+          <td>Enter a Word to Find Position:
+            <input type="text" id="wordPos" />
+          </td>
+          <td>Position (first index):
+            <output id="posFirst">-1</output>
+          </td>
+        </tr>
+
+        <tr>
+          <td>Enter a Word to Find Last Position:
+            <input type="text" id="wordLastPos" />
+          </td>
+          <td>Last Index of Word:
+            <output id="posLast">-1</output>
+          </td>
+        </tr>
+
+        <tr>
+          <td>Enter a Word to Search:
+            <input type="text" id="wordSearch" />
+          </td>
+          <td>
+            Word Found?:
+            <output id="foundWord">No</output>
+            <br />
+            Index of Word Found:
+            <output id="foundWordIndex">-1</output>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            Enter Substring Start Index:
+            <input type="number" id="subStart" min="0" />
+            <br />
+            Enter Substring End Index:
+            <input type="number" id="subEnd" min="0" />
+          </td>
+          <td>Substring:
+            <output id="subString"></output>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            Slice Start Index:
+            <input type="number" id="sliceStart" min="0" />
+            <br />
+            Slice End Index:
+            <input type="number" id="sliceEnd" min="0" />
+          </td>
+          <td>Slice Result:
+            <output id="sliceResult"></output>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            Replace Word (to find):
+            <input type="text" id="replaceFrom" />
+            <br />
+            Replace With:
+            <input type="text" id="replaceTo" />
+          </td>
+          <td>Replace Result:
+            <output id="replaceResult"></output>
+          </td>
+        </tr>
+
+        <tr>
+          <td>To Upper Case:</td>
+          <td>
+            <output id="upperCaseResult"></output>
+          </td>
+        </tr>
+
+        <tr>
+          <td>To Lower Case:</td>
+          <td>
+            <output id="lowerCaseResult"></output>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            Concat With:
+            <input type="text" id="concatString" />
+          </td>
+          <td>Concat Result:
+            <output id="concatResult"></output>
+          </td>
+        </tr>
+
+        <tr>
+          <td colspan="2" style="text-align:center;">
+            <input
+              type="button"
+              id="calculateBtn"
+              value="Calculate"
+              style="font-size: 30px;"
+              onclick="calculateStrings()"
+            />
+          </td>
+        </tr>
+      </table>
+    </form>
+  </center>
+
+  <script>
+    function calculateStrings() {
+      const str = document.getElementById("inputString").value;
+
+      const wordPos = document.getElementById("wordPos").value;
+      const wordLastPos = document.getElementById("wordLastPos").value;
+      const wordSearch = document.getElementById("wordSearch").value;
+
+      const subStart = parseInt(document.getElementById("subStart").value);
+      const subEnd = parseInt(document.getElementById("subEnd").value);
+
+      const sliceStart = parseInt(document.getElementById("sliceStart").value);
+      const sliceEnd = parseInt(document.getElementById("sliceEnd").value);
+
+      const replaceFrom = document.getElementById("replaceFrom").value;
+      const replaceTo = document.getElementById("replaceTo").value;
+
+      const concatString = document.getElementById("concatString").value;
+
+      document.getElementById("strLength").textContent = str.length;
+
+      const posFirst = wordPos ? str.indexOf(wordPos) : -1;
+      document.getElementById("posFirst").textContent = posFirst;
+
+      const posLast = wordLastPos ? str.lastIndexOf(wordLastPos) : -1;
+      document.getElementById("posLast").textContent = posLast;
+
+      const foundIndex = wordSearch ? str.indexOf(wordSearch) : -1;
+      const found = foundIndex !== -1 ? "Yes" : "No";
+      document.getElementById("foundWord").textContent = found;
+      document.getElementById("foundWordIndex").textContent = foundIndex;
+
+      if (
+        !isNaN(subStart) &&
+        subStart >= 0 &&
+        !isNaN(subEnd) &&
+        subEnd >= subStart &&
+        subEnd <= str.length
+      ) {
+        document.getElementById("subString").textContent = str.substring(subStart, subEnd);
+      } else {
+        document.getElementById("subString").textContent = "";
+      }
+
+      if (
+        !isNaN(sliceStart) &&
+        sliceStart >= 0 &&
+        !isNaN(sliceEnd) &&
+        sliceEnd >= sliceStart &&
+        sliceEnd <= str.length
+      ) {
+        document.getElementById("sliceResult").textContent = str.slice(sliceStart, sliceEnd);
+      } else {
+        document.getElementById("sliceResult").textContent = "";
+      }
+
+      if (replaceFrom) {
+        const escapedFrom = replaceFrom.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+        const re = new RegExp(escapedFrom);
+        document.getElementById("replaceResult").textContent = str.replace(re, replaceTo);
+      } else {
+        document.getElementById("replaceResult").textContent = "";
+      }
+
+      document.getElementById("upperCaseResult").textContent = str.toUpperCase();
+
+      document.getElementById("lowerCaseResult").textContent = str.toLowerCase();
+
+      if (concatString) {
+        document.getElementById("concatResult").textContent = str.concat(concatString);
+      } else {
+        document.getElementById("concatResult").textContent = "";
+      }
+    }
+  </script>
+</body>
+</html>

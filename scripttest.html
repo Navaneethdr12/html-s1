@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Script</title>
+    <script>
+         function Sum(){
+             let x=parseInt(document.getElementById("num1").value);
+             let y=parseInt(document.getElementById("num2").value);
+             let z=x+y;
+             alert("Sum = "+z);
+         document.getElementById("demo").innerHTML="Sum = "+z;
+        }
+
+        // function red(){
+        //     document.getElementById("change").style.color="red";}
+        // function blue(){
+        //     document.getElementById("change").style.color="blue";}
+        // function green(){
+        //     document.getElementById("change").style.color="green";}
+       // let x =prompt()
+        
+        </script>
+</head>
+<body>
+    <h1>Sum</h1>
+    <input type="text" id="num1" placeholder="Number 1: "><br>
+    <input type="text" id="num2" placeholder="Number 2: ">
+    <br>
+    <p id="demo"></p>
+    <button type="button" onclick="Sum()">Add</button> 
+
+
+    <!-- <h1 id="change">HELLO</h1>
+    <button type="button" value="Red" id="red" onclick="red()">Red</button>
+    <button type="button" value="Red" id="blue" onclick="blue()">Blue</button>
+    <button type="button" value="Red" id="green" onclick="green()">Green</button>
+     -->
+
+</body>
+</html>

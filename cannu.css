@@ -1,0 +1,71 @@
+#cannu
+{
+    color:rgb(131, 194, 245);
+    transition: all 0.3s ease; 
+
+}
+#cannu:hover {
+    color: rgb(24, 249, 249);
+    background-color: rgb(111, 142, 255);
+    cursor: pointer; 
+}
+.menu li{
+    font-size: large;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+
+ul {
+  list-style-type: none;
+  margin: 10;
+  padding: 1px;
+  overflow: hidden;
+  
+}
+
+ul li {
+  float: left;
+}
+
+ul li a {
+  display: block;
+  color: rgb(227, 157, 255);
+  text-align: left;
+  padding: 10px 10px;
+  text-decoration: none;
+}
+
+ul li a:hover {
+  background-color: #06c3f7;
+}
+.menu li{
+    justify-content: left;
+    text-align: left;
+}
+
+
+
+.myclass
+{
+    color:rgb(170, 52, 216);
+    transition: all 0.5s ease;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: large;
+}
+.myclass:hover
+{
+    color: blueviolet;
+    background-color:  rgb(111, 142, 255);
+    cursor: pointer;
+}
+body{
+    background-image: url('https://img.freepik.com/free-vector/hand-painted-watercolor-pastel-sky-background_23-2148902771.jpg');
+    background-size: cover;
+    margin:0;
+}
+.left {
+    padding-left: 0;
+}
+.logo{
+ padding-left: 50%;   
+}
